@@ -1,20 +1,21 @@
-module com.example.demo3 {
+module demo5 {
     requires javafx.controls;
+    requires javafx.graphics;
     requires javafx.fxml;
+    requires jdk.accessibility;
 
+    opens view to javafx.fxml;
+    exports view;
 
-    opens com.example.demo3 to javafx.fxml;
-    exports com.example.demo3;
+    opens ai to javafx.fxml;
+    exports ai;
 
-    opens board to javafx.fxml;
-    exports board;
+    opens controller to javafx.fxml;
+    exports controller;
 
-    opens register to javafx.fxml;
-    exports register;
+    opens model to javafx.fxml;
+    exports model;
 
-    opens login to javafx.fxml;
-    exports login;
-
-    opens start to javafx.fxml;
-    exports start;
+    opens Main to javafx.fxml;
+    exports Main;
 }
