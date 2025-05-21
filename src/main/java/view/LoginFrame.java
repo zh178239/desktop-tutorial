@@ -23,17 +23,16 @@ public class LoginFrame {
     public static String password;
     public static GridPane gridPane=new GridPane();
 
-    public LoginFrame(Stage stage, StageController stageController, Game game, Client client, LoginController loginController) {
+    public LoginFrame(Stage stage, StageController stageController, Client client, LoginController login) {
         registerButton.setOnAction(e -> {
-            stageController.showRegister(loginController.registerFrame);
+            stageController.showRegister();
         });
         loginButton.setOnAction(e -> {
             username = usernameField.getText();
             password = passwordField.getText();
             if(client.isMatch(username,password)){
             try {
-                game.start();
-                stage.close();
+                login.onLogin(username,stage);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }}
@@ -51,7 +50,7 @@ public class LoginFrame {
         gridPane.add(registerButton, 1, 3);
     }
         //要写一个没有账号然后去注册的程序
-    public static GridPane getGridPane() {
+    public GridPane getGridPane() {
         return gridPane;
     }
 

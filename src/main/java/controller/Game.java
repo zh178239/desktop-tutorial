@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import view.LoginFrame;
+import view.RegisterFrame;
 
 
 import java.io.*;
@@ -39,8 +41,7 @@ public class Game {
     }
 
 
-    public void start() throws Exception {
-        stage = new Stage();
+    public void start(Stage stage,Client client) throws Exception {
         frame=new GameFrame(stage , gameBoard, this);
         stage.show();
     }

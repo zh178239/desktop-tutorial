@@ -13,7 +13,7 @@ public class StartFrame {
     MyButton login=new MyButton("登录");
     MyButton register=new MyButton("注册");
     public static GridPane grid=new GridPane();
-    public StartFrame(Stage stage, StageController stageController, Game game , Client client, LoginController loginController) {
+    public StartFrame(Stage stage, StageController stageController, Client client,LoginController loginController) {
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
@@ -23,13 +23,13 @@ public class StartFrame {
         grid.add(login,0,1);
         grid.add(register,0,2);
         register.setOnAction(e->{
-            stageController.showRegister(loginController.registerFrame);
+            stageController.showRegister();
         });
         login.setOnAction(e->{
-            stageController.showLogin(loginController.loginFrame);
+            stageController.showLogin();
         });
     }
-    public static GridPane getGridPane() {
+    public GridPane getGridPane() {
         return grid;
     }
 }

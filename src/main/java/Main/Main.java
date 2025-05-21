@@ -18,10 +18,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Setting setting = new Setting("横刀立马");// 初始化游戏设置
         UserLib lib = new UserLib();
         Client client = new Client(lib);
-        LoginController login=new LoginController();
-        login.onLogin(LoginFrame.username);
+        LoginController login=new LoginController(client);
+        StageController stageController = new StageController(stage,login,client);
+        stageController.start();
     }
 }

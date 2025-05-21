@@ -9,29 +9,35 @@ import view.UserFrame;
 
 public class StageController {
     private final Stage stage;
-    Scene scene=new Scene(StartFrame.getGridPane(), 300, 250);
-    Scene scene1=new Scene(LoginFrame.getGridPane(),300,250);
-    Scene scene2=new Scene(RegisterFrame.getGridPane(),300,250);
+    private final Scene scene;
+    private final Scene loginScene;
+    private final Scene registerScene;
 
-    public StageController(Stage stage) {
+    public StageController(Stage stage,LoginController login,Client client) {
         this.stage=stage;
+        StartFrame startFrame=new StartFrame(stage,this,client,login);
+        LoginFrame loginFrame=new LoginFrame(stage,this,client,login);
+        RegisterFrame registerFrame=new RegisterFrame(stage,this,client,login);
+        scene=new Scene(startFrame.getGridPane(), 800, 600);
+        loginScene=new Scene(loginFrame.getGridPane(),800,600);
+        registerScene=new Scene(registerFrame.getGridPane(),800,600);
     }
 
-    public void start(StartFrame startFrame) {
+    public void start() {
         stage.setTitle("开始界面");
         stage.setScene(scene);
         stage.show();
     }
 
-    public void showLogin(LoginFrame loginFrame) {
+    public void showLogin() {
         stage.setTitle("Login");
-        stage.setScene(scene1);
+        stage.setScene(loginScene);
         stage.show();
     }
 
-    public void showRegister(RegisterFrame registerFrame) {
+    public void showRegister() {
         stage.setTitle("Register");
-        stage.setScene(scene2);
+        stage.setScene(registerScene);
         stage.show();
     }
 }

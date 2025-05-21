@@ -22,7 +22,7 @@ public class RegisterFrame {
     public static String password;
     public static GridPane gridPane=new GridPane();
 
-    public RegisterFrame(Stage stage, StageController stageController, Game game, Client client, LoginController loginController) {
+    public RegisterFrame(Stage stage, StageController stageController,Client client, LoginController login) {
         registerButton.setOnAction(e -> {
             username = usernameField.getText();
             password = passwordField.getText();
@@ -30,7 +30,7 @@ public class RegisterFrame {
             showSuccessAlert();
             new Timeline(
                     new KeyFrame(Duration.millis(500), event -> {
-                        stageController.showLogin(loginController.loginFrame);
+                        stageController.showLogin();
                     })
             ).play();
         });
@@ -47,7 +47,7 @@ public class RegisterFrame {
         gridPane.add(registerButton, 1, 2);
     }
 
-    public static GridPane getGridPane() {
+    public GridPane getGridPane() {
         return gridPane;
     }
 
